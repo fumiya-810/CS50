@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block title %}アカウント登録{% endblock %}
+{% block main %}
+    <h1>ユーザ登録</h1>
+    <div class="container py-5 text-center">
+    <form action="/register" method="POST">
+        <div class="mb-3">
+            <input type="text" name="username" class="form-control mx-auto w-auto"  aria-describedby="emailHelp" placeholder="ユーザー名">
+            <input  name="email" type="email" class="form-control mx-auto w-auto" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="メールアドレス">
+        </div>
+            <div class="mb-3">
+            <input type="password" name="password" class="form-control mx-auto w-auto" id="exampleInputPassword1" placeholder="パスワード">
+            <input type="password" name="password2" class="form-control mx-auto w-auto" id="exampleInputPassword1" placeholder="パスワード 確認用">
+        </div>
+        <div class="mb-3">
+            <input type="text" name="post_code" class="form-control mx-auto w-auto" placeholder="郵便番号 -無し、数字のみ入力">
+            <input type="text" name="address" class="form-control mx-auto w-auto" placeholder="住所">
+        </div>
+        <button type="submit" class="btn btn-primary hoge">新規登録</button>
+    </form>
+</div>
+{% endblock %}

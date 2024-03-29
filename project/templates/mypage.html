@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}マイページ{% endblock %}
+
+{% block main %}
+  <link href="../static/style.css" rel="stylesheet" />
+  <h1>マイページ</h1>
+  <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ユーザーネーム</th>
+          <th scope="col">メールアドレス</th>
+          <th scope="col">郵便番号</th>
+          <th scope="col">住所</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">{{name}}</th>
+          <td>{{ email }}</td>
+          <td>〒{{ post_code }}</td>
+          <td>{{ address }}</td>
+        </tr>
+        <tr>
+      </tbody>
+    </table>
+    <h3>出品中の商品</h3>
+  <div class="items">
+      {% for item in items %}
+      <div class=".main-content">
+        {% if item['status'] == false %}
+          <div class="status">Sold</div>
+        {% endif %}
+        <div class="photo">
+          {% for photo in photos %}
+            <a href="/item?item_id={{ item['item_id'] }}"><img src="{{ photo['photo'] }}" alt="Image" width="300" height="300"></a>
+          {% endfor %}
+        </div>
+          <h3 class="content-title"><a href="/item?item_id={{ item['item_id'] }}">{{item['item_name']}}</a>  {{ item['price'] }}円</h3>
+        </div>
+      {% endfor %}
+  </div>
+{% endblock %}

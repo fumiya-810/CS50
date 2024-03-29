@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}出品{% endblock %}
+
+{% block main %}
+<div class="container py-5 text-center">
+<form action="/list" method="post" enctype="multipart/form-data">
+    <label>商品名</label>
+    <input type="text" name="item_name" class="form-control mx-auto w-auto">
+    <label>商品説明</label>
+    <textarea name="description" class="form-control mx-auto w-auto"></textarea>
+    <label>商品画像</label>
+    <input type="file" name="image" class="form-label" accept = ".png, .jpg, .bmp"><br>
+    <label>価格</label>
+    <input type="number" name="price" min="1" class="form-control mx-auto w-auto" placeholder="円">
+    <button type="submit" class="btn btn-primary">出品</button>
+</form>
+</div>
+{% endblock %}

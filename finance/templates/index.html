@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <div class="section">
+
+        <h2>All Birthdays</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>stocks you own<br>(所有している株)</th>
+                    <th>Number of shares owned<br>(所有株数)</th>
+                    <th>Current price<br>(現在の価格)</th>
+                    <th>Total amount of shares held<br>(保有株の合計金額)</th>
+                    <th>Current cash balance and total<br>(現在の現金残高と総計)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- TODO: Loop through the database entries to display them in this table -->
+                {% for symbol in total_shares.keys() %}
+                    <tr>
+                        {% if total_shares[symbol] > 0 %}
+                        <td>{{ symbol }}</td>
+                        <td>{{ total_shares[symbol] }}</td>
+                        <td>{{ current_prices[symbol] }}</td>
+                        <td>{{ total_values[symbol] }}</td>
+                    </tr>
+                    {% endif %}
+                {% endfor %}
+                    <tr>
+                        <td colspan="4"></td>
+                        <td>{{ cash }} / {{ grand_total }}</td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

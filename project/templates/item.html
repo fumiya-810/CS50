@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}商品ページ{% endblock %}
+
+{% block main %}
+{% for image in item_images %}
+<img src="{{ image['photo'] }}" width="300" height="300">
+{% endfor %}
+<h1>商品名：{{item_info['item_name']}}</h1>
+<h2>価格：{{ item_info['price'] }}円</h2>
+<h2>説明</h2>
+<p>{{ item_info['description'] }}</p>
+
+<h2>
+    販売状況：
+    {% if item_info['status'] == true %}
+    販売中
+    {% else %}
+    売り切れ
+    {% endif %}
+</h2>
+
+<!-- もし出品者と閲覧しているユーザーidが同じだったら -->
+{% if user_id == item_info['user_id'] %}
+    <!-- 編集ボタンを表示 -->
+    <form action="/edit" method="get">
+        <input type="hidden" name="item_id" value="{{ item_info['item_id'] }}">
+        <button type="submit">編集</button>
+    </form>
+{% else %}
+    <!-- 販売状態だったら購入ボタンを表示 -->
+    {% if item_info['status'] == true %}
+        <form action="/item" method="post">
+            <input type="hidden" name="item_id" value="{{ item_info['item_id'] }}">
+            <button type="submit">購入</button>
+        </form>
+    {% endif %}
+{% endif %}
+{% endblock %}

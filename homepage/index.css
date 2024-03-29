@@ -1,0 +1,45 @@
+header{
+    height: 50px;
+    width: 100%;
+    background-color:#99CCFF;
+    font-size: large;
+    text-align: center;
+}
+
+main{
+    display: flex;
+    margin: 50px auto;
+}
+
+footer{
+    height: 50px;
+    width: 100%;
+    background-color:#C0C0C0;
+}
+
+.content{
+    width: 300px;
+    background-color: #C0C0C0;
+    margin-right: 30px;
+    position: relative;
+}
+
+.point{
+    color: white;
+    background-color: orange;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.img{
+    background-image: url('img/butuzou.jpg');
+    background-position: top 50%;
+    background-size: cover;
+    height: 150px;
+
+}
+
+h3,p{
+    margin:10px;
+}

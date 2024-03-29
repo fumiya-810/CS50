@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+<form action="/buy" method="post">
+    <div class="mb-3">
+        <input class="form-control mx-auto w-auto" name="symbol" placeholder="Symbol">
+    </div>
+    <div class="mb-3">
+        <input class="form-control mx-auto w-auto" name="shares" placeholder="Number" >
+    </div>
+    <button class="btn btn-primary" type="submit">Buy</button>
+    <p>Current balance  is {{ cash }}</p>
+    <p>現在の残金は{{ cash }}です。</p>
+</form>
+{% endblock %}

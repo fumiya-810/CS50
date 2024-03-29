@@ -1,0 +1,11 @@
+sort1 uses: bubble sort
+
+How do you know?: Bubble sort compares adjacent elements, and if the left one is larger, swaps them for all elements. Repeat this process until sorting is complete.
+
+sort2 uses: merge sort
+
+How do you know?: Merge sort recursively splits an array into two, sorts the smaller arrays, and then merges them back in the correct order.
+
+sort3 uses: selection sort
+
+How do you know?: Selection sort finds the smallest element among the elements and replaces it with the first one. Repeat while reducing the range.

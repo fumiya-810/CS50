@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}編集ページ{% endblock %}
+
+{% block main %}
+<script>
+    function clickEvent() {
+        // アラートについて参考サイト
+        // https://www.sejuku.net/blog/29821
+        alert('本当に削除しますか？\n削除する場合はOKをクリックしてください。');
+    }
+  </script>
+<div class="container py-5 text-center">
+{% for image in item_images %}
+<img src="{{ image['photo'] }}" width="300" height="300">
+{% endfor %}
+<form action="/edit" method="post" enctype="multipart/form-data">
+    <label>商品名</label>
+    <input type="text" name="item_name" value="{{item_info['item_name']}}" class="form-control mx-auto w-auto">
+    <label>価格</label>
+    <input type="number" name="price" min="1" value="{{item_info['price']}}" class="form-control mx-auto w-auto">円
+    <label>商品説明</label>
+    <input type="text" name="description" value="{{ item_info['description'] }}" class="form-control mx-auto w-auto">
+    <input type="hidden" name="item_id" value="{{ item_info['item_id'] }}">
+    <button type="submit" class="btn btn-primary">更新</button>
+</form>
+</div>
+<!-- もし出品者と閲覧しているユーザーidが同じだったら -->
+    {% if user_id == item_info['user_id'] %}
+    <form action="/delete" method="post">
+        <input type="hidden" name="item_id" value="{{ item_info['item_id'] }}">
+        <button type="submit" onclick="clickEvent()" class="btn btn-primary">削除</button>
+    </form>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}トップ{% endblock %}
+
+{% block main %}
+<link href="../static/style.css" rel="stylesheet" />
+<script src="../static/static.js"></script>
+
+<div class="items">
+    {% for item in items %}
+        <div class="main-content">
+            {% if item['status'] == false %}
+                <div class="status">Sold</div>
+            {% endif %}
+            <div class="photo">
+                {% for photo in photos %}
+                {% if photo['item_id'] == item['item_id'] %}
+                    <a href="/item?item_id={{ item['item_id'] }}"><img src="{{ photo['photo'] }}" alt="Image" width="300" height="300"></a>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <h3 class="content-title"><a href="/item?item_id={{ 'item_id' }}">{{ item['item_name'] }}</a>  {{ item['price'] }}円</h3>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

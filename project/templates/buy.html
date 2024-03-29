@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}購入確認ページ{% endblock %}
+
+{% block main %}
+<style>
+    *{
+        text-align: center;
+    }
+    .attention{
+        background-color: red;
+        color:white;
+    }
+</style>
+<div class="attention">
+    <h1 >本当に購入しますか？</h1>
+    <p >購入する場合は画面下の購入ボタンをクリックしてください。</p>
+</div>
+{% for image in item_images %}
+<img src="{{ image['photo'] }}" width="300" height="300">
+{% endfor %}
+<h1>商品名：{{item_info['item_name']}}</h1>
+<h2>価格：{{item_info['price']}}円</h2>
+<h2>説明</h2>
+<p>{{ item_info['description'] }}</p>
+
+<h2>
+    販売状況：
+    {% if item_info['status'] == true %}
+    販売中
+    {% else %}
+    売り切れ
+    {% endif %}
+</h2>
+{% if item_info['status'] == true %}
+<form action="/buyed" method="post">
+    <input type="hidden" name="item_id" value="{{ item_info['item_id'] }}">
+    <input type="hidden" name="user_id" value="{{ user_id }}">
+    <button type="submit">購入</button>
+</form>
+{% endif %}
+{% endblock %}

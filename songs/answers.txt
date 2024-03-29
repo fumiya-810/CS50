@@ -1,0 +1,11 @@
+Overall, I felt that many of the songs that ranked high on the list were laid-back songs from stores.
+Also, since there are many songs that have the theme of heartbreak, it seems that people prefer songs that make them feel relaxed and empathetic.
+
+
+Possible reasons why the audio aura calculation method is not representative of listeners are as follows.
+First of all, if a person uses Spotify to play music that is not his or her favorite,
+but only plays what is popular at the time, there is no connection between that person's tastes and
+the songs that are played. It is thought that it may become inappropriate regarding changes in mood.
+The second type of music is the songs I play when playing with friends. Popular songs are often played in exciting situations,
+regardless of the content of the lyrics, so it cannot be said that the aura of the song played is related to the person's mood.
+From the above points, it can be said that audioras do not necessarily represent listeners.

@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <div class="section">
+
+        <h2>All Birthdays</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>User ID<br>(ユーザーID)</th>
+                    <th>Trading symbol<br>(取引銘柄)</th>
+                    <th>Number of shares<br>(株数)</th>
+                    <th>Price at the time of transaction<br>(取引時の価格)</th>
+                    <th>Transaction date and time<br>(取引日時)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- TODO: Loop through the database entries to display them in this table -->
+                {% for log in logs %}
+                    <tr>
+                        <td>{{ log.user_id }}</td>
+                        <td>{{ log.stock_symbol }}</td>
+                        <!-- 株の数がマイナスだったら -->
+                        {% if log.num_shares < 0 %}
+                        <td>Sell {{ -log.num_shares }}</td>
+                        {% else %}
+                            <td>Buy {{ log.num_shares }}</td>
+                        {% endif %}
+                        <td>{{ log.transaction_price }}</td>
+                        <td>{{ log.transaction_time }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
